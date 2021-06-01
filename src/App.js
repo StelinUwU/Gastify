@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import { Helmet } from "react-helmet";
+import {
+  Header,
+  Title,
+  HeaderContainer,
+  ButtonsContainer,
+} from "./Elements/Header";
+import Button from "./Elements/Button";
+import LogoutButton from "./Components/LogoutButton";
+import ExpenseForm from "./Components/ExpenseForm";
+import TotalExpense from "./Components/TotalExpense";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Helmet>
+        <title>Agregar Gasto</title>
+      </Helmet>
+      <Header>
+        <HeaderContainer>
+          <Title>Agregar Gasto</Title>
+          <ButtonsContainer>
+            <Button to="/categories">Categorias</Button>
+            <Button to="/list">Lista de gastos</Button>
+            <LogoutButton />
+          </ButtonsContainer>
+        </HeaderContainer>
+      </Header>
+      <ExpenseForm />
+      <TotalExpense />
+    </>
   );
-}
+};
 
 export default App;
